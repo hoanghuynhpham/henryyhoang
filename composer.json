@@ -8,6 +8,13 @@
             "Henryy\\Hoanghuynh\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Henryy\\Hoanghuynh\\QRCodePDFServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "Phạm Hoàng Huynh",
