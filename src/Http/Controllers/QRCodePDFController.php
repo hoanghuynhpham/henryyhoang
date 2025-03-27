@@ -1,16 +1,15 @@
 <?php
 
-namespace Vendor\PackageName\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Controller; // Kế thừa từ Controller của Laravel
 
 class QRCodePDFController extends Controller
 {
     public function index()
     {
-        return view('package::qr-pdf'); // Thay đổi namespace view
+        return view('qr-pdf');
     }
 
     public function generateQRCode(Request $request)

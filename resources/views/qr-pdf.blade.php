@@ -19,8 +19,23 @@
             <div class="row">
                 <!-- Left Section -->
                 <div class="col-md-6 pe-3">
+                    <div class="row row-cols-3 g-3 mb-4 text-center">
+                        <div><i class="fas fa-link fa-lg"></i><p>URL</p></div>
+                        <div><i class="fas fa-id-card fa-lg"></i><p>VCARD</p></div>
+                        <div><i class="fas fa-file-alt fa-lg"></i><p>VĂN BẢN</p></div>
+                        <div><i class="fas fa-envelope fa-lg"></i><p>E-MAIL</p></div>
+                        <div><i class="fas fa-sms fa-lg"></i><p>SMS</p></div>
+                        <div><i class="fas fa-wifi fa-lg"></i><p>WIFI</p></div>
+                        <div><i class="fab fa-bitcoin fa-lg"></i><p>BITCOIN</p></div>
+                        <div><i class="fab fa-facebook fa-lg"></i><p>FACEBOOK</p></div>
+                        <div class="text-primary"><i class="fas fa-file-pdf fa-lg"></i><p>PDF</p></div>
+                        <div><i class="fas fa-music fa-lg"></i><p>MP3</p></div>
+                        <div><i class="fas fa-store fa-lg"></i><p>CỬA HÀNG ỨNG DỤNG</p></div>
+                        <div><i class="fas fa-image fa-lg"></i><p>HÌNH ẢNH</p></div>
+                    </div>
+
                     <h4 class="fw-bold text-center mb-4">Tạo Mã QR PDF</h4>
-                    <form id="qrForm" action="{{ route('package.generate.qr.pdf') }}" method="POST" enctype="multipart/form-data">
+                    <form id="qrForm" action="{{ route('generate.qr.pdf') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Chọn tệp PDF:</label>
@@ -31,6 +46,7 @@
                         </button>
                     </form>
                 </div>
+
                 <!-- QR Code Section -->
                 <div class="col-md-6 text-center d-flex flex-column justify-content-center">
                     <div class="card p-4 border">
@@ -44,20 +60,24 @@
             </div>
         </div>
     </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
         document.getElementById('qrForm').addEventListener('submit', function(e) {
             e.preventDefault();
+
             let formData = new FormData(this);
-            fetch("{{ route('package.generate.qr.pdf') }}", {
+
+            fetch("{{ route('generate.qr.pdf') }}", {
                 method: "POST",
                 body: formData,
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                 }
             })
-            .then(response => response.json())
+            .then(response => response.json()) // Đọc JSON từ server
             .then(data => {
                 if (data.pdfUrl) {
                     document.getElementById('qrCode').innerHTML = "";
@@ -72,6 +92,7 @@
             })
             .catch(error => console.error('Lỗi:', error));
         });
+
         document.getElementById('download-jpg').addEventListener('click', function() {
             const qrCanvas = document.querySelector('#qrCode canvas');
             if (qrCanvas) {
@@ -84,5 +105,6 @@
             }
         });
     </script>
+
 </body>
 </html>

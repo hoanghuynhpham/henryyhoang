@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\QRCodePDFController;
 
-Route::get('/wifi-qr', [QrCodeController::class, 'index'])->name('wifi.qr');
-Route::post('/wifi-qr/generate', [QrCodeController::class, 'generate'])->name('generate.qr');
-Route::get('/download-qr', [QrCodeController::class, 'download'])->name('download.qr');
+Route::get('/qr-pdf', [QRCodePDFController::class, 'index'])->name('qr.pdf');
+Route::post('/generate-qr-pdf', [QRCodePDFController::class, 'generateQRCode'])->name('generate.qr.pdf');
