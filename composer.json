@@ -1,6 +1,6 @@
 {
     "name": "henryy/hoanghuynh",
-    "description": "QR",
+    "description": "QR Code PDF Generator",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -22,5 +22,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": ">=8.0",
+        "endroid/qr-code": "^6.0@dev",
+        "barryvdh/laravel-dompdf": "^3.1"
+    }
 }
