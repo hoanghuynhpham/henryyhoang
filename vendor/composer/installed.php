@@ -3,7 +3,7 @@
         'name' => 'henryy/hoanghuynh',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'eb5533989a870706ae6cce409e2317d91a423e64',
+        'reference' => '5d34e0af46edea51dca0952f1e3eec95b3daf638',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -96,7 +96,7 @@
         'henryy/hoanghuynh' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'eb5533989a870706ae6cce409e2317d91a423e64',
+            'reference' => '5d34e0af46edea51dca0952f1e3eec95b3daf638',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
