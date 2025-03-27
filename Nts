@@ -1,3 +1,6 @@
+composer require henryy/hoanghuynh:dev-main
+
+
 Đăng ký trong ServiceProvider
 📌 File: package/src/Providers/PackageServiceProvider.php
 
