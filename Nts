@@ -1,0 +1,77 @@
+Đăng ký trong ServiceProvider
+📌 File: package/src/Providers/PackageServiceProvider.php
+
+
+
+public function boot()
+{
+    // Load route
+    $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
+
+    // Load views
+    $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'package');
+}
+
+
+
+
+
+Cập nhật composer.json để Laravel nhận diện package
+
+
+"extra": {
+    "laravel": {
+        "providers": [
+            "Vendor\\PackageName\\Providers\\PackageServiceProvider"
+        ]
+    }
+}
+
+
+
+
+Bạn cần đăng ký Service Provider trong config/app.php để Laravel biết cách sử dụng gói:
+
+'providers' => [
+    Henryy\Hoanghuynh\QRCodePDFServiceProvider::class,
+],
+
+
+
+Sau đó chạy:
+
+composer dump-autoload
+
+Cài đặt các gói phụ thuộc
+Nếu gói của bạn cần Laravel QRCode hoặc xử lý PDF, hãy chắc chắn bạn đã cài đặt chúng:
+composer require simplesoftwareio/simple-qrcode
+composer require barryvdh/laravel-dompdf
+
+
+
+
+5️⃣ Kiểm tra lại route
+Gói Laravel của bạn đã có route riêng, bạn cần chắc chắn rằng nó hoạt động:
+
+Route::prefix('package')->group(function () {
+    Route::get('/qr-pdf', [QRCodePDFController::class, 'index'])->name('package.qr.pdf');
+    Route::post('/qr-pdf/generate', [QRCodePDFController::class, 'generateQRCode'])->name('package.generate.qr.pdf');
+});
+
+
+Tạo liên kết giữa storage và public (Chạy lệnh này trong terminal)
+bash
+php artisan storage:link
+
+
+
+
+Cài EXTENSIONS: vscode-pdf
+
+
+
+✔️ Cài package (composer require henryy/hoanghuynh)
+✔️ Đăng ký Service Provider (config/app.php)
+✔️ Publish file cấu hình & view (php artisan vendor:publish)
+✔️ Cài thư viện hỗ trợ (QRCode, DomPDF nếu cần)
+✔️ Kiểm tra route

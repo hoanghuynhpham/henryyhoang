@@ -1,0 +1,19 @@
+{
+    "name": "henryy/hoanghuynh",
+    "description": "QR",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Henryy\\Hoanghuynh\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Phạm Hoàng Huynh",
+            "email": "huynh.pham@smbplus.vn"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
